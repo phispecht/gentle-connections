@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { flowStore, useProfile } from "@/lib/flow-store";
 
-const INTERESTS = ["Coffee", "Walks", "Conversation", "Gardening", "Reading", "Music"];
+const INTERESTS = ["Coffee", "Walks", "Conversation", "Gardening", "Reading", "Music", "Board games", "Cooking / Baking", "Watching TV", "Phone calls"];
 
 export const Route = createFileRoute("/profile")({
   head: () => ({

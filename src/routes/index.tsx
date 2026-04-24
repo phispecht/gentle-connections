@@ -26,10 +26,10 @@ function WelcomePage() {
     <FlowShell>
       <div className="text-center space-y-8">
         <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-foreground">
-          Find someone nearby to share everyday moments with
+          Find someone nearby to share everyday moments with - people in a similar stage of life
         </h1>
         <p className="text-xl text-muted-foreground">
-          No pressure. Start at your own pace.
+          Connect with people in your area safely and simply, at your own pace. <span>❤️</span>
         </p>
         <div className="pt-4">
           <Button asChild size="lg" className="h-16 px-10 text-xl rounded-2xl">
