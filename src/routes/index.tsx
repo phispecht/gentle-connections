@@ -1,26 +1,42 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { FlowShell } from "@/components/FlowShell";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Quiet Company — Find someone nearby" },
+      {
+        name: "description",
+        content:
+          "A calm, low-pressure way for older adults to find someone nearby to share everyday moments with.",
+      },
+      { property: "og:title", content: "Quiet Company — Find someone nearby" },
+      {
+        property: "og:description",
+        content: "No pressure. Start at your own pace.",
+      },
+    ],
+  }),
+  component: WelcomePage,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function WelcomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <FlowShell>
+      <div className="text-center space-y-8">
+        <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-foreground">
+          Find someone nearby to share everyday moments with
+        </h1>
+        <p className="text-xl text-muted-foreground">
+          No pressure. Start at your own pace.
+        </p>
+        <div className="pt-4">
+          <Button asChild size="lg" className="h-16 px-10 text-xl rounded-2xl">
+            <Link to="/profile">Get started</Link>
+          </Button>
+        </div>
+      </div>
+    </FlowShell>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }

@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as MessageRouteImport } from './routes/message'
+import { Route as MatchRouteImport } from './routes/match'
+import { Route as IntroduceRouteImport } from './routes/introduce'
+import { Route as FinishRouteImport } from './routes/finish'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessageRoute = MessageRouteImport.update({
+  id: '/message',
+  path: '/message',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatchRoute = MatchRouteImport.update({
+  id: '/match',
+  path: '/match',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntroduceRoute = IntroduceRouteImport.update({
+  id: '/introduce',
+  path: '/introduce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinishRoute = FinishRouteImport.update({
+  id: '/finish',
+  path: '/finish',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,90 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/finish': typeof FinishRoute
+  '/introduce': typeof IntroduceRoute
+  '/match': typeof MatchRoute
+  '/message': typeof MessageRoute
+  '/profile': typeof ProfileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/finish': typeof FinishRoute
+  '/introduce': typeof IntroduceRoute
+  '/match': typeof MatchRoute
+  '/message': typeof MessageRoute
+  '/profile': typeof ProfileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/finish': typeof FinishRoute
+  '/introduce': typeof IntroduceRoute
+  '/match': typeof MatchRoute
+  '/message': typeof MessageRoute
+  '/profile': typeof ProfileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/finish' | '/introduce' | '/match' | '/message' | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/finish' | '/introduce' | '/match' | '/message' | '/profile'
+  id:
+    | '__root__'
+    | '/'
+    | '/finish'
+    | '/introduce'
+    | '/match'
+    | '/message'
+    | '/profile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FinishRoute: typeof FinishRoute
+  IntroduceRoute: typeof IntroduceRoute
+  MatchRoute: typeof MatchRoute
+  MessageRoute: typeof MessageRoute
+  ProfileRoute: typeof ProfileRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/message': {
+      id: '/message'
+      path: '/message'
+      fullPath: '/message'
+      preLoaderRoute: typeof MessageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/match': {
+      id: '/match'
+      path: '/match'
+      fullPath: '/match'
+      preLoaderRoute: typeof MatchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/introduce': {
+      id: '/introduce'
+      path: '/introduce'
+      fullPath: '/introduce'
+      preLoaderRoute: typeof IntroduceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finish': {
+      id: '/finish'
+      path: '/finish'
+      fullPath: '/finish'
+      preLoaderRoute: typeof FinishRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +145,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FinishRoute: FinishRoute,
+  IntroduceRoute: IntroduceRoute,
+  MatchRoute: MatchRoute,
+  MessageRoute: MessageRoute,
+  ProfileRoute: ProfileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
