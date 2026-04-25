@@ -1,0 +1,22 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="connected-people">
+    <circle cx="200" cy="55" r="13" fill="#E87D3E"/>
+    <path d="M 200 68 Q 187 77 187 90 L 187 94 Q 187 98 191 98 L 209 98 Q 213 98 213 94 L 213 90 Q 213 77 200 68 Z" fill="#E87D3E"/>
+    <circle cx="170" cy="125" r="13" fill="#6B9BD1"/>
+    <path d="M 170 138 Q 157 147 157 160 L 157 164 Q 157 168 161 168 L 179 168 Q 183 168 183 164 L 183 160 Q 183 147 170 138 Z" fill="#6B9BD1"/>
+    <circle cx="230" cy="125" r="13" fill="#9B86BD"/>
+    <path d="M 230 138 Q 217 147 217 160 L 217 164 Q 217 168 221 168 L 239 168 Q 243 168 243 164 L 243 160 Q 243 147 230 138 Z" fill="#9B86BD"/>
+  </g>
+  <path d="M 200 68 Q 183 90 170 112" stroke="#E87D3E" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M 200 68 Q 217 90 230 112" stroke="#E87D3E" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M 183 150 Q 200 158 217 150" stroke="#6B9BD1" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M 200 102 C 196 102 193 105 193 109 C 193 114 200 118 200 118 C 200 118 207 114 207 109 C 207 105 204 102 200 102 Z" fill="#E87D3E" opacity="0.8"/>
+  <text x="200" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="500" fill="#4B5563" text-anchor="middle">Genuine Connections</text>
+  <defs>
+    <linearGradient id="warmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E87D3E"/>
+      <stop offset="50%" stop-color="#6B9BD1"/>
+      <stop offset="100%" stop-color="#9B86BD"/>
+    </linearGradient>
+  </defs>
+</svg>
