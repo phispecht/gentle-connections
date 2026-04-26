@@ -27,7 +27,9 @@ function MatchPage() {
               aria-hidden
               className="w-20 h-20 rounded-full bg-accent flex items-center justify-center text-3xl font-semibold text-accent-foreground"
             >
-              P
+              <div className="">
+                <img className="rounded-full border-4 border-[var(--accent)]" src="/src/images/peter.png" alt="Connection Peter" />
+              </div>
             </div>
             <div>
               <p className="text-2xl font-semibold">Meet Peter (69)</p>
