@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { FlowShell } from "@/components/FlowShell";
 import { Button } from "@/components/ui/button";
+import peter from "@/images/peter.png";
 
 export const Route = createFileRoute("/match")({
   head: () => ({
@@ -28,7 +29,7 @@ function MatchPage() {
               className="w-20 h-20 rounded-full bg-accent flex items-center justify-center text-3xl font-semibold text-accent-foreground"
             >
               <div className="">
-                <img className="rounded-full border-4 border-[var(--accent)]" src="/src/images/peter.png" alt="Connection Peter" />
+                <img className="rounded-full border-4 border-[var(--accent)]" src={peter} alt="Connection Peter" />
               </div>
             </div>
             <div>
