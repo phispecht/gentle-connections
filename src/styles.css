@@ -67,6 +67,7 @@
   --foreground: oklch(0.22 0.03 250);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.03 250);
+  --profile-selection: rgb(240, 180, 140);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.03 250);
   --primary: rgb(107, 155, 209);

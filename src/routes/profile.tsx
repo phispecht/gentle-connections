@@ -66,7 +66,7 @@ function ProfilePage() {
 
           <div className="space-y-3">
             <Label className="text-lg">What do you enjoy?</Label>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mt-4">
               {INTERESTS.map((i) => {
                 const active = interests.includes(i);
                 return (
@@ -77,7 +77,7 @@ function ProfilePage() {
                     aria-pressed={active}
                     className={`px-5 py-3 text-lg rounded-full border-2 transition-colors ${
                       active
-                        ? "bg-primary text-primary-foreground border-primary"
+                        ? "bg-[var(--profile-selection)] border-[var(--profile-selection)] text-foreground"
                         : "bg-card text-foreground border-border hover:bg-secondary"
                     }`}
                   >
