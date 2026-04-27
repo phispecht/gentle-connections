@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MessageRouteImport } from './routes/message'
 import { Route as MatchRouteImport } from './routes/match'
 import { Route as IntroduceRouteImport } from './routes/introduce'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MessageRoute = MessageRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/introduce': typeof IntroduceRoute
   '/match': typeof MatchRoute
   '/message': typeof MessageRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/introduce': typeof IntroduceRoute
   '/match': typeof MatchRoute
   '/message': typeof MessageRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/introduce': typeof IntroduceRoute
   '/match': typeof MatchRoute
   '/message': typeof MessageRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/finish' | '/introduce' | '/match' | '/message' | '/profile'
+  fullPaths:
+    | '/'
+    | '/finish'
+    | '/introduce'
+    | '/match'
+    | '/message'
+    | '/privacy'
+    | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/finish' | '/introduce' | '/match' | '/message' | '/profile'
+  to:
+    | '/'
+    | '/finish'
+    | '/introduce'
+    | '/match'
+    | '/message'
+    | '/privacy'
+    | '/profile'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/introduce'
     | '/match'
     | '/message'
+    | '/privacy'
     | '/profile'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +117,7 @@ export interface RootRouteChildren {
   IntroduceRoute: typeof IntroduceRoute
   MatchRoute: typeof MatchRoute
   MessageRoute: typeof MessageRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
 }
 
@@ -103,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/message': {
@@ -149,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   IntroduceRoute: IntroduceRoute,
   MatchRoute: MatchRoute,
   MessageRoute: MessageRoute,
+  PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import gentleConnections from "@/images/gentle-connections-icon.svg";
 
 export function FlowShell({ children }: { children: ReactNode }) {
@@ -10,8 +11,11 @@ export function FlowShell({ children }: { children: ReactNode }) {
         </div>
         {children}
       </main>
-      <footer className="mt-10 text-base text-muted-foreground">
-        Calm. Private. At your pace.
+      <footer className="mt-10 text-base text-muted-foreground flex flex-col items-center gap-2">
+        <span>Calm. Private. At your pace.</span>
+        <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
+          Datenschutz
+        </Link>
       </footer>
     </div>
   );
