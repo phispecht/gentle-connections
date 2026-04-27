@@ -1,12 +1,13 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { FlowShell } from "@/components/FlowShell";
 import { Button } from "@/components/ui/button";
+import { useT, translations } from "@/lib/i18n";
 
 export const Route = createFileRoute("/introduce")({
   head: () => ({
     meta: [
-      { title: "A gentle introduction — Quiet Company" },
-      { name: "description", content: "Would you like us to introduce you?" },
+      { title: translations.de.introduce.metaTitle },
+      { name: "description", content: translations.de.introduce.metaDesc },
     ],
   }),
   component: IntroducePage,
@@ -14,22 +15,21 @@ export const Route = createFileRoute("/introduce")({
 
 function IntroducePage() {
   const navigate = useNavigate();
+  const t = useT();
   return (
     <FlowShell>
       <div className="text-center space-y-10">
         <h1 className="text-3xl sm:text-4xl font-semibold leading-snug">
-          Would you like us to introduce you?
+          {t.introduce.title}
         </h1>
-        <p className="text-lg text-muted-foreground">
-          We’ll send a short, friendly first message on your behalf.
-        </p>
+        <p className="text-lg text-muted-foreground">{t.introduce.subtitle}</p>
         <div className="space-y-3">
           <Button
             size="lg"
             className="w-full h-16 text-xl rounded-2xl"
             onClick={() => navigate({ to: "/message" })}
           >
-            Yes, introduce us
+            {t.introduce.yes}
           </Button>
           <Button
             asChild
@@ -37,7 +37,7 @@ function IntroducePage() {
             size="lg"
             className="w-full h-16 text-xl rounded-2xl border-2"
           >
-            <Link to="/finish">Not now</Link>
+            <Link to="/finish">{t.introduce.no}</Link>
           </Button>
         </div>
       </div>

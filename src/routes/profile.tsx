@@ -5,14 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { flowStore, useProfile } from "@/lib/flow-store";
-
-const INTERESTS = ["Coffee", "Walks", "Conversation", "Gardening", "Reading", "Music", "Board games", "Cooking / Baking", "Watching TV", "Phone calls"];
+import { useT, translations } from "@/lib/i18n";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
-      { title: "About you — Quiet Company" },
-      { name: "description", content: "Tell us a little about yourself." },
+      { title: translations.de.profile.metaTitle },
+      { name: "description", content: translations.de.profile.metaDesc },
     ],
   }),
   component: ProfilePage,
@@ -21,6 +20,7 @@ export const Route = createFileRoute("/profile")({
 function ProfilePage() {
   const navigate = useNavigate();
   const profile = useProfile();
+  const t = useT();
   const [interests, setInterests] = useState<string[]>(profile.interests);
 
   const toggle = (i: string) =>
@@ -42,32 +42,32 @@ function ProfilePage() {
     <FlowShell>
       <div className="space-y-8">
         <div className="space-y-2">
-          <h1 className="text-3xl sm:text-4xl font-semibold">A little about you</h1>
-          <p className="text-lg text-muted-foreground">Just the basics. Nothing is shared yet.</p>
+          <h1 className="text-3xl sm:text-4xl font-semibold">{t.profile.title}</h1>
+          <p className="text-lg text-muted-foreground">{t.profile.subtitle}</p>
         </div>
 
         <form onSubmit={onSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-lg">Name</Label>
+            <Label htmlFor="name" className="text-lg">{t.profile.name}</Label>
             <Input id="name" name="name" required defaultValue={profile.name}
               className="h-14 text-lg rounded-xl" />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="age" className="text-lg">Age</Label>
+            <Label htmlFor="age" className="text-lg">{t.profile.age}</Label>
             <Input id="age" name="age" inputMode="numeric" required defaultValue={profile.age}
               className="h-14 text-lg rounded-xl" />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="location" className="text-lg">Location</Label>
+            <Label htmlFor="location" className="text-lg">{t.profile.location}</Label>
             <Input id="location" name="location" required defaultValue={profile.location}
-              placeholder="Town or neighborhood"
+              placeholder={t.profile.locationPlaceholder}
               className="h-14 text-lg rounded-xl" />
           </div>
 
           <div className="space-y-3">
-            <Label className="text-lg">What do you enjoy?</Label>
+            <Label className="text-lg">{t.profile.interestsLabel}</Label>
             <div className="flex flex-wrap gap-3 mt-4">
-              {INTERESTS.map((i) => {
+              {t.profile.interests.map((i) => {
                 const active = interests.includes(i);
                 return (
                   <button
@@ -89,7 +89,7 @@ function ProfilePage() {
           </div>
 
           <Button type="submit" size="lg" className="w-full h-16 text-xl rounded-2xl">
-            Continue
+            {t.profile.continue}
           </Button>
         </form>
       </div>
