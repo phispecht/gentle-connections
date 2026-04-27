@@ -35,8 +35,6 @@ export function useLang(): Lang {
   return useSyncExternalStore(langStore.subscribe, langStore.get, langStore.getServer);
 }
 
-type Dict = typeof translations.de;
-
 export const translations = {
   de: {
     footer: {
