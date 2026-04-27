@@ -1,17 +1,13 @@
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 export type Lang = "de" | "en";
 
 const STORAGE_KEY = "gc-lang";
 
-function initialLang(): Lang {
-  if (typeof window === "undefined") return "de";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "de" || stored === "en") return stored;
-  return "de";
-}
-
-let lang: Lang = initialLang();
+// Always start with "de" so SSR and the client's first render match.
+// We hydrate from localStorage in an effect after mount.
+let lang: Lang = "de";
+let hydrated = false;
 const listeners = new Set<() => void>();
 
 export const langStore = {
@@ -29,11 +25,25 @@ export const langStore = {
     listeners.add(l);
     return () => listeners.delete(l);
   },
+  hydrateFromStorage: () => {
+    if (hydrated || typeof window === "undefined") return;
+    hydrated = true;
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if ((stored === "de" || stored === "en") && stored !== lang) {
+      langStore.set(stored);
+    } else {
+      document.documentElement.lang = lang;
+    }
+  },
 };
 
 export function useLang(): Lang {
+  useEffect(() => {
+    langStore.hydrateFromStorage();
+  }, []);
   return useSyncExternalStore(langStore.subscribe, langStore.get, langStore.getServer);
 }
+
 
 export const translations = {
   de: {
