@@ -166,10 +166,17 @@ export const translations = {
   },
 } as const;
 
-export type Dict = (typeof translations)["de"];
+type DeepStringify<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? DeepStringify<U>[]
+    : { [K in keyof T]: DeepStringify<T[K]> };
+
+export type Dict = DeepStringify<(typeof translations)["de"]>;
 
 export function useT(): Dict {
   const l = useLang();
-  return translations[l];
+  return translations[l] as Dict;
 }
+
 
