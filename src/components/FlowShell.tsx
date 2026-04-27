@@ -14,11 +14,11 @@ export function FlowShell({ children }: { children: ReactNode }) {
       <footer className="mt-10 text-base text-muted-foreground flex flex-col items-center gap-2">
         <span>Calm. Private. At your pace.</span>
         <div className="flex gap-4">
-          <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
-            Datenschutz
-          </Link>
           <Link to="/imprint" className="underline underline-offset-4 hover:text-foreground">
             Impressum
+          </Link>
+          <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
+            Datenschutz
           </Link>
         </div>
       </footer>
