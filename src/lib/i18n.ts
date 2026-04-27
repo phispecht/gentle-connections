@@ -164,9 +164,12 @@ export const translations = {
     },
     common: { back: "Back to home" },
   },
-} satisfies Record<Lang, unknown> as Record<Lang, Dict>;
+} as const;
+
+export type Dict = (typeof translations)["de"];
 
 export function useT(): Dict {
   const l = useLang();
   return translations[l];
 }
+
