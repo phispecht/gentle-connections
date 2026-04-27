@@ -42,7 +42,7 @@ function ImprintPage() {
             Gentle Connections<br />
             Philipp Specht<br />
             Mühlenstraße 61<br />
-            10551 Berlin<br />
+            13187 Berlin<br />
             {isDE ? "Deutschland" : "Germany"}
           </p>
         </section>
@@ -63,7 +63,7 @@ function ImprintPage() {
           <p className="text-base leading-relaxed">
             Philipp Specht<br />
             Mühlenstraße 61<br />
-            10551 Berlin<br />
+            13187 Berlin<br />
             {isDE ? "Deutschland" : "Germany"}
           </p>
         </section>
