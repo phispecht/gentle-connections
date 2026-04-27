@@ -169,14 +169,15 @@ export const translations = {
 type DeepStringify<T> = T extends string
   ? string
   : T extends readonly (infer U)[]
-    ? DeepStringify<U>[]
-    : { [K in keyof T]: DeepStringify<T[K]> };
+    ? readonly DeepStringify<U>[]
+    : { readonly [K in keyof T]: DeepStringify<T[K]> };
 
 export type Dict = DeepStringify<(typeof translations)["de"]>;
 
 export function useT(): Dict {
   const l = useLang();
-  return translations[l] as Dict;
+  return translations[l] as unknown as Dict;
 }
+
 
 
