@@ -14,6 +14,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MessageRouteImport } from './routes/message'
 import { Route as MatchRouteImport } from './routes/match'
 import { Route as IntroduceRouteImport } from './routes/introduce'
+import { Route as ImprintRouteImport } from './routes/imprint'
 import { Route as FinishRouteImport } from './routes/finish'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const IntroduceRoute = IntroduceRouteImport.update({
   path: '/introduce',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImprintRoute = ImprintRouteImport.update({
+  id: '/imprint',
+  path: '/imprint',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FinishRoute = FinishRouteImport.update({
   id: '/finish',
   path: '/finish',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/finish': typeof FinishRoute
+  '/imprint': typeof ImprintRoute
   '/introduce': typeof IntroduceRoute
   '/match': typeof MatchRoute
   '/message': typeof MessageRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/finish': typeof FinishRoute
+  '/imprint': typeof ImprintRoute
   '/introduce': typeof IntroduceRoute
   '/match': typeof MatchRoute
   '/message': typeof MessageRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/finish': typeof FinishRoute
+  '/imprint': typeof ImprintRoute
   '/introduce': typeof IntroduceRoute
   '/match': typeof MatchRoute
   '/message': typeof MessageRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/finish'
+    | '/imprint'
     | '/introduce'
     | '/match'
     | '/message'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/finish'
+    | '/imprint'
     | '/introduce'
     | '/match'
     | '/message'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/finish'
+    | '/imprint'
     | '/introduce'
     | '/match'
     | '/message'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FinishRoute: typeof FinishRoute
+  ImprintRoute: typeof ImprintRoute
   IntroduceRoute: typeof IntroduceRoute
   MatchRoute: typeof MatchRoute
   MessageRoute: typeof MessageRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IntroduceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/imprint': {
+      id: '/imprint'
+      path: '/imprint'
+      fullPath: '/imprint'
+      preLoaderRoute: typeof ImprintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/finish': {
       id: '/finish'
       path: '/finish'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FinishRoute: FinishRoute,
+  ImprintRoute: ImprintRoute,
   IntroduceRoute: IntroduceRoute,
   MatchRoute: MatchRoute,
   MessageRoute: MessageRoute,
