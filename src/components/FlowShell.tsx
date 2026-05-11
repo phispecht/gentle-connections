@@ -17,8 +17,8 @@ export function FlowShell({ children }: { children: ReactNode }) {
         </div>
         {children}
       </main>
-      <footer className="mt-10 text-base text-muted-foreground flex flex-col items-center gap-2">
-        <span>{t.footer.tagline}</span>
+      <footer className="mt-12 text-base text-muted-foreground flex flex-col items-center gap-2">
+        <span className="text-xl font-bold">{t.footer.tagline}</span>
         <div className="flex gap-4">
           <Link to="/imprint" className="underline underline-offset-4 hover:text-foreground">
             {t.footer.imprint}

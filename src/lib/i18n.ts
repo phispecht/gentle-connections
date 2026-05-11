@@ -54,8 +54,8 @@ export const translations = {
     },
     langSwitch: { de: "DE", en: "EN", label: "Sprache" },
     welcome: {
-      title: "Finden Sie jemanden in der Nähe, mit dem Sie alltägliche Momente teilen können – Menschen in einer ähnlichen Lebensphase",
-      subtitle: "Verbinden Sie sich sicher und einfach mit Menschen in Ihrer Umgebung – in Ihrem eigenen Tempo.",
+      title: "Lernen Sie neue Menschen in Ihrer Nähe kennen – für Freundschaft, gemeinsame Aktivitäten und Gespräche.",
+      subtitle: "Verbinden Sie sich sicher und einfach mit Menschen in einer ähnlichen Lebensphase und lernen Sie sich in Ihrem eigenen Tempo kennen.",
       cta: "Jetzt starten",
       metaTitle: "Gentle Connections — Jemanden in der Nähe finden",
       metaDesc: "Eine ruhige Möglichkeit für ältere Menschen, jemanden in der Nähe zu finden.",
@@ -118,8 +118,8 @@ export const translations = {
     },
     langSwitch: { de: "DE", en: "EN", label: "Language" },
     welcome: {
-      title: "Find someone nearby to share everyday moments with — people in a similar stage of life",
-      subtitle: "Connect with people in your area safely and simply, at your own pace.",
+      title: "Get to know new people near you – for friendship, shared activities, and conversation.",
+      subtitle: "Connect safely and easily with people in a similar stage of life and get to know each other at your own pace.",
       cta: "Get started",
       metaTitle: "Gentle Connections — Find someone nearby",
       metaDesc: "A calm, low-pressure way for older adults to find someone nearby.",
