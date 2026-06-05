@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { flowStore, useProfile } from "@/lib/flow-store";
 import { useT, translations } from "@/lib/i18n";
+import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({
@@ -34,6 +35,7 @@ function ProfilePage() {
       age: String(data.get("age") || ""),
       location: String(data.get("location") || ""),
       interests,
+      aboutMe: String(data.get("aboutMe") || ""),
     });
     navigate({ to: "/match" });
   };
@@ -48,20 +50,52 @@ function ProfilePage() {
 
         <form onSubmit={onSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-lg">{t.profile.name}</Label>
-            <Input id="name" name="name" required defaultValue={profile.name}
-              className="h-14 text-lg rounded-xl" />
+            <Label className="text-lg">{t.profile.photo}</Label>
+
+            <p className="text-muted-foreground">{t.profile.photoDescription}</p>
+
+            <div className="mt-4 flex h-32 items-center justify-center rounded-xl border border-dashed text-lg text-muted-foreground">
+              {t.profile.photoPlaceholder}
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-lg">
+              {t.profile.name}
+            </Label>
+            <Input
+              id="name"
+              name="name"
+              required
+              defaultValue={profile.name}
+              className="h-14 text-lg rounded-xl"
+            />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="age" className="text-lg">{t.profile.age}</Label>
-            <Input id="age" name="age" inputMode="numeric" required defaultValue={profile.age}
-              className="h-14 text-lg rounded-xl" />
+            <Label htmlFor="age" className="text-lg">
+              {t.profile.age}
+            </Label>
+            <Input
+              id="age"
+              name="age"
+              inputMode="numeric"
+              required
+              defaultValue={profile.age}
+              className="h-14 text-lg rounded-xl"
+            />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="location" className="text-lg">{t.profile.location}</Label>
-            <Input id="location" name="location" required defaultValue={profile.location}
+            <Label htmlFor="location" className="text-lg">
+              {t.profile.location}
+            </Label>
+            <Input
+              id="location"
+              name="location"
+              required
+              defaultValue={profile.location}
               placeholder={t.profile.locationPlaceholder}
-              className="h-14 text-lg rounded-xl" />
+              className="h-14 text-lg rounded-xl"
+            />
           </div>
 
           <div className="space-y-3">
@@ -86,6 +120,20 @@ function ProfilePage() {
                 );
               })}
             </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="aboutMe" className="text-lg">
+              {t.profile.aboutMe}
+            </Label>
+
+            <Textarea
+              id="aboutMe"
+              name="aboutMe"
+              defaultValue={profile.aboutMe}
+              placeholder={t.profile.aboutMePlaceholder}
+              className="mt-4 min-h-32 text-lg rounded-xl resize-none"
+            />
           </div>
 
           <Button type="submit" size="lg" className="w-full h-16 text-xl rounded-2xl">

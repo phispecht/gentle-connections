@@ -44,7 +44,6 @@ export function useLang(): Lang {
   return useSyncExternalStore(langStore.subscribe, langStore.get, langStore.getServer);
 }
 
-
 export const translations = {
   de: {
     footer: {
@@ -54,50 +53,91 @@ export const translations = {
     },
     langSwitch: { de: "DE", en: "EN", label: "Sprache" },
     welcome: {
-      title: "Lernen Sie neue Menschen in Ihrer Nähe kennen – für Freundschaft, gemeinsame Aktivitäten und Gespräche.",
-      subtitle: "Verbinden Sie sich sicher und einfach mit Menschen in einer ähnlichen Lebensphase und lernen Sie sich in Ihrem eigenen Tempo kennen.",
+      title: "Finde Freunde durch gemeinsame Interessen und Aktivitäten",
+      subtitle:
+        "Treffen Sie Menschen mit ähnlichen Interessen, teilen Sie Aktivitäten und bauen Sie neue Kontakte in Ihrem eigenen Tempo auf.",
       cta: "Jetzt starten",
       metaTitle: "Gentle Connections — Jemanden in der Nähe finden",
       metaDesc: "Eine ruhige Möglichkeit für ältere Menschen, jemanden in der Nähe zu finden.",
     },
     profile: {
-      title: "Ein wenig über Sie",
-      subtitle: "Nur das Wichtigste. Es wird noch nichts geteilt.",
+      title: "Erzählen Sie ein wenig über sich",
+      subtitle:
+        "Nur wenige Angaben, damit andere Sie besser kennenlernen können. Sie entscheiden jederzeit, welche Informationen sichtbar sind.",
+      photo: "Ihr Profilbild (optional)",
+      photoDescription: "Ein Profilbild ist freiwillig. Sie entscheiden selbst, was andere sehen.",
+      photoPlaceholder: "Profilbild hinzufügen (im Prototyp nicht verfügbar)",
       name: "Name",
       age: "Alter",
       location: "Wohnort",
       locationPlaceholder: "Stadt oder Stadtteil",
       interestsLabel: "Was machen Sie gerne?",
+      aboutMePlaceholder:
+        "Beispiel: Ich gehe gerne spazieren, probiere neue Rezepte aus und freue mich über nette Gespräche bei einem Kaffee.",
       continue: "Weiter",
-      interests: ["Kaffee", "Spaziergänge", "Gespräche", "Gartenarbeit", "Lesen", "Musik", "Brettspiele", "Kochen / Backen", "Fernsehen", "Telefonieren"],
+      interests: [
+        "Kaffee",
+        "Spaziergänge",
+        "Gespräche",
+        "Gartenarbeit",
+        "Lesen",
+        "Musik",
+        "Brettspiele",
+        "Kochen / Backen",
+        "Fernsehen",
+        "Telefonieren",
+      ],
+      aboutMe:
+        "Erzählen Sie etwas über sich, Ihre Interessen oder was Sie gerne gemeinsam unternehmen möchten. (optional)",
       metaTitle: "Über Sie — Gentle Connections",
       metaDesc: "Erzählen Sie uns ein wenig über sich.",
     },
     match: {
-      title: "Jemand in der Nähe",
-      meet: "Peter (69) kennenlernen",
-      distance: "Wohnt 10 Minuten entfernt",
-      bio: "Genießt Spaziergänge am Morgen und Kaffee.",
-      verified: "✓ Verifiziertes Profil",
-      newHere: "Auch neu hier",
-      open: "Ich bin offen für einen Kontakt",
+      title: "Menschen mit ähnlichen Interessen",
+      sharedInterests: "Gemeinsame Interessen",
+      trustSafety: "Vertrauen & Sicherheit",
+      verified: "✓ Identität bestätigt",
+      newHere: "🌱 Neu dabei",
+      open: "Ein erstes Gespräch starten",
       later: "Vielleicht später",
-      metaTitle: "Ihr Match — Gentle Connections",
-      metaDesc: "Lernen Sie jemanden in der Nähe kennen. Kein Druck.",
+
+      profiles: [
+        {
+          name: "Peter",
+          age: 69,
+          distance: "Wohnt 10 Minuten entfernt",
+          bio: "Ich gehe gerne morgens spazieren, probiere neue Rezepte aus und freue mich über nette Gespräche bei einem Kaffee.",
+          interests: ["☕ Kaffee", "🚶 Spaziergänge", "🍳 Kochen", "📚 Lesen"],
+        },
+        {
+          name: "Maria",
+          age: 60,
+          distance: "Wohnt in Ihrer Nähe",
+          bio: "Ich verbringe gerne Zeit im Garten, höre Musik und freue mich über gemeinsame Spaziergänge.",
+          interests: ["🌱 Gartenarbeit", "🎵 Musik", "🚶 Spaziergänge"],
+        },
+        {
+          name: "Michaela",
+          age: 63,
+          distance: "Wohnt 15 Minuten entfernt",
+          bio: "Ich koche gerne, lese viel und tausche mich gerne mit anderen Menschen aus.",
+          interests: ["🍳 Kochen", "📚 Lesen", "💬 Gespräche"],
+        },
+      ],
     },
     introduce: {
       title: "Möchten Sie, dass wir Sie vorstellen?",
-      subtitle: "Wir senden eine kurze, freundliche erste Nachricht in Ihrem Namen.",
-      yes: "Ja, stellen Sie uns vor",
+      subtitle:
+        "Wir bereiten eine freundliche erste Nachricht vor. Sie können diese vor dem Senden überprüfen.",
+      yes: "Weiter zur ersten Nachricht",
       no: "Nicht jetzt",
-      metaTitle: "Eine sanfte Vorstellung — Gentle Connections",
-      metaDesc: "Möchten Sie, dass wir Sie vorstellen?",
     },
     message: {
       title: "Ihre erste Nachricht",
-      subtitle: "Wir haben etwas Einfaches geschrieben. Sie können es so senden.",
-      body: "„Hallo Peter, schön, Sie kennenzulernen. Ich gehe auch gerne spazieren. Vielleicht beginnen wir mit einem kurzen Gespräch?“",
-      send: "Nachricht senden",
+      subtitle:
+        "Hier ist ein Vorschlag für Ihre erste Nachricht. Sie können diese ändern oder direkt senden.",
+      body: "Hallo Peter, ich habe gesehen, dass wir beide gerne spazieren gehen. Ich würde mich über ein freundliches Gespräch freuen.",
+      send: "Erste Nachricht senden",
       metaTitle: "Erste Nachricht — Gentle Connections",
       metaDesc: "Eine einfache, vorbereitete erste Nachricht.",
     },
@@ -118,50 +158,91 @@ export const translations = {
     },
     langSwitch: { de: "DE", en: "EN", label: "Language" },
     welcome: {
-      title: "Get to know new people near you – for friendship, shared activities, and conversation.",
-      subtitle: "Connect safely and easily with people in a similar stage of life and get to know each other at your own pace.",
+      title: "Find friendships through shared interests and activities",
+      subtitle:
+        "Meet like-minded people, share activities, and build new connections at your own pace.",
       cta: "Get started",
       metaTitle: "Gentle Connections — Find someone nearby",
       metaDesc: "A calm, low-pressure way for older adults to find someone nearby.",
     },
     profile: {
-      title: "A little about you",
-      subtitle: "Just the basics. Nothing is shared yet.",
+      title: "Tell us a little about yourself",
+      subtitle:
+        "Just a few details so others can get to know you better. You can decide at any time which information is visible.",
+      photo: "Your profile picture (optional)",
+      photoDescription: "Adding a profile picture is optional. You decide what others can see.",
+      photoPlaceholder: "Add profile picture (not available in the prototype)",
       name: "Name",
       age: "Age",
       location: "Location",
       locationPlaceholder: "Town or neighborhood",
       interestsLabel: "What do you enjoy?",
+      aboutMePlaceholder:
+        "Example: I enjoy going for walks, trying out new recipes, and having nice conversations over coffee. (optional)",
       continue: "Continue",
-      interests: ["Coffee", "Walks", "Conversation", "Gardening", "Reading", "Music", "Board games", "Cooking / Baking", "Watching TV", "Phone calls"],
+      interests: [
+        "Coffee",
+        "Walks",
+        "Conversation",
+        "Gardening",
+        "Reading",
+        "Music",
+        "Board games",
+        "Cooking / Baking",
+        "Watching TV",
+        "Phone calls",
+      ],
+      aboutMe:
+        "Tell us a little about yourself, your interests, or what you'd like to do together.",
       metaTitle: "About you — Gentle Connections",
       metaDesc: "Tell us a little about yourself.",
     },
     match: {
-      title: "Someone nearby",
-      meet: "Meet Peter (69)",
-      distance: "Lives 10 minutes away",
-      bio: "Enjoys morning walks and coffee.",
-      verified: "✓ Verified profile",
-      newHere: "Also new here",
-      open: "I’m open to connecting",
+      title: "People with similar interests",
+      sharedInterests: "Shared interests",
+      trustSafety: "Trust & Safety",
+      verified: "✓ Identity verified",
+      newHere: "🌱 New here",
+      open: "Start a first conversation",
       later: "Maybe later",
-      metaTitle: "Your match — Gentle Connections",
-      metaDesc: "Meet someone nearby. No pressure.",
+
+      profiles: [
+        {
+          name: "Peter",
+          age: 69,
+          distance: "Lives 10 minutes away",
+          bio: "I enjoy going for walks in the morning, trying new recipes, and having nice conversations over coffee.",
+          interests: ["☕ Coffee", "🚶 Walks", "🍳 Cooking", "📚 Reading"],
+        },
+        {
+          name: "Maria",
+          age: 60,
+          distance: "Lives nearby",
+          bio: "I enjoy spending time in the garden, listening to music, and going for walks together.",
+          interests: ["🌱 Gardening", "🎵 Music", "🚶 Walks"],
+        },
+        {
+          name: "Michaela",
+          age: 63,
+          distance: "Lives 15 minutes away",
+          bio: "I enjoy cooking, reading books, and having interesting conversations with other people.",
+          interests: ["🍳 Cooking", "📚 Reading", "💬 Conversations"],
+        },
+      ],
     },
     introduce: {
       title: "Would you like us to introduce you?",
-      subtitle: "We’ll send a short, friendly first message on your behalf.",
-      yes: "Yes, introduce us",
+      subtitle: "We’ll prepare a friendly first message. You can review it before sending.",
+      yes: "Continue to first message",
       no: "Not now",
       metaTitle: "A gentle introduction — Gentle Connections",
       metaDesc: "Would you like us to introduce you?",
     },
     message: {
       title: "Your first message",
-      subtitle: "We’ve written something simple. You can send it as it is.",
-      body: "“Hi Peter, nice to meet you. I also enjoy walks. Maybe we could start with a short chat?”",
-      send: "Send message",
+      subtitle: "Here is a suggested message. You can change it or send it as it is.",
+      body: "Hello Peter, I saw that we both enjoy going for walks. I would be happy to start with a friendly conversation.",
+      send: "Send first message",
       metaTitle: "First message — Gentle Connections",
       metaDesc: "A simple, ready-made first message.",
     },
@@ -188,6 +269,3 @@ export function useT(): Dict {
   const l = useLang();
   return translations[l] as unknown as Dict;
 }
-
-
-
