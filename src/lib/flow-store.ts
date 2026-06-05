@@ -5,9 +5,10 @@ export type Profile = {
   age: string;
   location: string;
   interests: string[];
+  aboutMe: string;
 };
 
-let profile: Profile = { name: "", age: "", location: "", interests: [] };
+let profile: Profile = { name: "", age: "", location: "", interests: [], aboutMe: "" };
 const listeners = new Set<() => void>();
 
 export const flowStore = {

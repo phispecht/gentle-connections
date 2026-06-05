@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { FlowShell } from "@/components/FlowShell";
 import { Button } from "@/components/ui/button";
 import { useT, translations } from "@/lib/i18n";
+import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/message")({
   head: () => ({
@@ -22,9 +23,10 @@ function MessagePage() {
         <h1 className="text-3xl sm:text-4xl font-semibold">{t.message.title}</h1>
         <p className="text-lg text-muted-foreground">{t.message.subtitle}</p>
 
-        <blockquote className="bg-card border-2 border-border rounded-2xl p-6 text-xl leading-relaxed">
-          {t.message.body}
-        </blockquote>
+        <Textarea
+          defaultValue={t.message.body}
+          className="min-h-32 text-lg rounded-xl resize-none"
+        />
 
         <Button
           size="lg"
